@@ -7,6 +7,7 @@ const SeedInput = () => {
     <TextField
       label="Seed"
       id="outlined-end-adornment"
+      size="small"
       sx={{ m: 1, width: "25ch" }}
       slotProps={{
         input: {

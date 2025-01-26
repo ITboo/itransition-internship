@@ -1,14 +1,24 @@
-import React from 'react'
-import {LangSwitcher} from '../LangSwitcher'
-import SeedInput from '../Seed'
+import React from "react";
+import { LangSwitcher } from "../LangSwitcher";
+import SeedInput from "../Seed";
+import { Stack } from "@mui/material";
+import LikesSlider from "../LikesSlider";
 
 const Filters = () => {
   return (
-    <div>
-        <LangSwitcher/>
-        <SeedInput/>
-    </div>
-  )
-}
+    <Stack
+      direction="row"
+      spacing={3}
+      sx={{
+        justifyContent: "flex-start",
+        alignItems: "center",
+      }}
+    >
+      <LangSwitcher />
+      <SeedInput />
+      <LikesSlider/>
+    </Stack>
+  );
+};
 
-export default Filters
+export default Filters;
