@@ -1,30 +1,32 @@
-import * as React from 'react';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import * as React from "react";
+import { useTranslation } from "react-i18next";
 
-export const LangSwitcher=()=> {
-  const [lang, setLang] = React.useState('');
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
-  const handleChange = (event) => {
-    setLang(event.target.value);
-  };
+export const LangSwitcher = () => {
+  const { i18n, t } = useTranslation();
 
   return (
     <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-      <InputLabel id="demo-select-small-label">Language</InputLabel>
+      <InputLabel id="language">{t('language')}</InputLabel>
       <Select
-        labelId="demo-select-small-label"
+        defaultValue={i18n.resolvedLanguage}
+        onChange={(e) => {
+          i18n.changeLanguage(e.target.value);
+        }}
+        labelId="language"
         id="demo-select-small"
-        value={lang}
         label="Language"
-        onChange={handleChange}
       >
-        <MenuItem value={20}>ENG</MenuItem>
-        <MenuItem value={10}>RUS</MenuItem>
-        <MenuItem value={30}>KOR</MenuItem>
+        <MenuItem value={"en"}>EN</MenuItem>
+        <MenuItem value={"ru"} selected>
+          RU
+        </MenuItem>
+        <MenuItem value={"ko"}>KO</MenuItem>
       </Select>
     </FormControl>
   );
-}
+};
