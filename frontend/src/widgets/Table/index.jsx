@@ -16,6 +16,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { rows } from "../../utils/mockData";
 import { Stack } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import {useTranslation} from 'react-i18next'
 
 function Row(props) {
   const { row } = props;
@@ -100,6 +101,7 @@ function Row(props) {
 }
 
 export default function CollapsibleTable() {
+  const {t} = useTranslation()
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
@@ -108,9 +110,9 @@ export default function CollapsibleTable() {
             <TableCell />
             <TableCell>#</TableCell>
             <TableCell align="right">ISBN</TableCell>
-            <TableCell align="right">Title</TableCell>
-            <TableCell align="right">Author</TableCell>
-            <TableCell align="right">Publisher</TableCell>
+            <TableCell align="right">{t('title')}</TableCell>
+            <TableCell align="right">{t('author')}</TableCell>
+            <TableCell align="right">{t('publisher')}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

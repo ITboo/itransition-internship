@@ -1,5 +1,6 @@
 import Header from "./widgets/Header";
 import CollapsibleTable from "./widgets/Table";
+
 import "./App.css";
 import { Container } from "@mui/material";
 
