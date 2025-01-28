@@ -1,8 +1,9 @@
 import { initializeApp } from "firebase/app";
-import {getAuth} from 'firebase/auth'
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyALQSPrEC6Ezz_3lNBAuEBsGP64WrBkmb4',
+  apiKey: "AIzaSyALQSPrEC6Ezz_3lNBAuEBsGP64WrBkmb4",
   authDomain: "itransition-task4-92c74.firebaseapp.com",
   projectId: "itransition-task4-92c74",
   storageBucket: "itransition-task4-92c74.firebasestorage.app",
@@ -11,4 +12,5 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app)
+export const auth = getAuth(app);
+export const db = getFirestore(app);
