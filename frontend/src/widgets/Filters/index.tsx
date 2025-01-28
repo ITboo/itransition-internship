@@ -3,6 +3,7 @@ import { LangSwitcher } from "../LangSwitcher";
 import SeedInput from "../Seed";
 import { Stack } from "@mui/material";
 import LikesSlider from "../LikesSlider";
+import ReviewsInput from "../ReviewsInput";
 
 const Filters = () => {
   return (
@@ -17,6 +18,7 @@ const Filters = () => {
       <LangSwitcher />
       <SeedInput />
       <LikesSlider/>
+      <ReviewsInput/>
     </Stack>
   );
 };

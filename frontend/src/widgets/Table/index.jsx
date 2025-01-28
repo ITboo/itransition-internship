@@ -13,7 +13,6 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { rows } from "../../utils/mockData";
 import { Stack } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import {useTranslation} from 'react-i18next'
@@ -100,7 +99,7 @@ function Row(props) {
   );
 }
 
-export default function CollapsibleTable() {
+export default function CollapsibleTable({ books }) {
   const {t} = useTranslation()
   return (
     <TableContainer component={Paper}>
@@ -116,7 +115,7 @@ export default function CollapsibleTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {books.map((row) => (
             <Row key={row.name} row={row} />
           ))}
         </TableBody>

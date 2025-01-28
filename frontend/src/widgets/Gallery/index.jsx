@@ -1,13 +1,14 @@
 import React from 'react'
-import { rows } from '../../utils/mockData'
-
-const Gallery = () => {
+import BookCard from '../../shared/BookCard'
+import Stack from '@mui/material/Stack';
+const Gallery = ({books}) => {
   return (
-    <div>
-        {rows.map((item)=>(
-            <div key={item.id}>{item.title}</div>
+    <Stack direction="row" spacing={10} useFlexGap
+    sx={{ flexWrap: 'wrap' }}>
+        {books.map((item)=>(
+            <BookCard title={item.title} author={item.author}/>
         ))}
-    </div>
+    </Stack>
   )
 }
 
