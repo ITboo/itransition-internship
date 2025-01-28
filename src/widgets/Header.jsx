@@ -6,7 +6,6 @@ import BlockIcon from "@mui/icons-material/Block";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import SearchIcon from "@mui/icons-material/Search";
 import Stack from "@mui/material/Stack";
-
 const Header = () => {
   return (
     <header>
@@ -14,7 +13,7 @@ const Header = () => {
         sx={{
           display: "flex",
           flexDirection: "row",
-          justifyContent:'space-between',
+          justifyContent: "space-between",
           alignItems: "center",
           "& > *": {
             m: 1,

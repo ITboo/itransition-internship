@@ -1,8 +1,8 @@
 import { initializeApp } from "firebase/app";
-import 'dotenv/config';
+import {getAuth} from 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: process.env.APIKEY,
+  apiKey: 'AIzaSyALQSPrEC6Ezz_3lNBAuEBsGP64WrBkmb4',
   authDomain: "itransition-task4-92c74.firebaseapp.com",
   projectId: "itransition-task4-92c74",
   storageBucket: "itransition-task4-92c74.firebasestorage.app",
@@ -11,3 +11,4 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app)

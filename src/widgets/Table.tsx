@@ -19,6 +19,11 @@ const rows = [
   { id: 3, username: "Snow", email: "Jon", last_seen: '35' },
   { id: 4, username: "Sndfow", email: "Jons", last_seen: '35' },
   { id: 5, username: "Snow", email: "Jofen", last_seen: '35' },
+  { id: 1, username: "Snoweeee", email: "Jon", last_seen: '35' },
+  { id: 2, username: "Snow", email: "Jonffs", last_seen: '35' },
+  { id: 3, username: "Snow", email: "Jon", last_seen: '35' },
+  { id: 4, username: "Sndfow", email: "Jons", last_seen: '35' },
+  { id: 5, username: "Snow", email: "Jofen", last_seen: '35' },
 ];
 
 const paginationModel = { page: 0, pageSize: 10 };

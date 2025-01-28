@@ -1,9 +1,8 @@
 import * as React from "react";
 import Container from '@mui/material/Container';
-import DataTable from "./widgets/Table";
-import Header from "./widgets/Header";
-
-const Main = () => {
+import DataTable from '../widgets/Table'
+import Header from '../widgets/Header'
+const Home = () => {
   return (
     <Container>
       <Header/>
@@ -12,4 +11,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default Home
