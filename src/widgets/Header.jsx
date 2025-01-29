@@ -6,7 +6,23 @@ import BlockIcon from "@mui/icons-material/Block";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import SearchIcon from "@mui/icons-material/Search";
 import Stack from "@mui/material/Stack";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { auth } from "../config/firebase";
+import { signOut } from "@firebase/auth";
+import { useNavigate } from "react-router";
+
+
 const Header = () => {
+  const navigate = useNavigate()
+  const handleLogOut = async () => {
+    try {
+      await signOut(auth);
+      navigate('/')
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <header>
       <Box
@@ -37,6 +53,9 @@ const Header = () => {
             <SearchIcon />
           </IconButton>
         </Stack>
+        <IconButton onClick={handleLogOut}>
+          <LogoutIcon />
+        </IconButton>
       </Box>
     </header>
   );

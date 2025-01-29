@@ -25,7 +25,7 @@ const Home = () => {
   }, []);
   return (
     <Container>
-      <Header/>
+      <Header />
       <DataTable userList={userList}/>
     </Container>
   )
