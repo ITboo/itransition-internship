@@ -33,9 +33,6 @@ function Row(props) {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell component="th" scope="row">
-          {row.id}
-        </TableCell>
         <TableCell align="right">{row.isbn}</TableCell>
         <TableCell align="right">{row.title}</TableCell>
         <TableCell align="right">{row.author}</TableCell>
@@ -55,7 +52,7 @@ function Row(props) {
               >
                 <Box>
                   <img
-                    src="https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_360,c_scale,dpr_1.5/jackets/9781408855898.jpg"
+                    src={row.coverUrl}
                     alt=""
                     width={200}
                   />
@@ -80,12 +77,13 @@ function Row(props) {
                   </Typography>
                   <Typography variant="h6" gutterBottom component="div">
                     {row.publisher}
-                  </Typography>{" "}
+                  </Typography>
                   <Box>
+                    <Typography variant="h5">Reviews ({row.reviews.length})</Typography>
                     {row.reviews.map((review) => (
-                      <Box>
-                        <Typography>{review.date}</Typography>
-                        <Typography>{review.text}</Typography>
+                      <Box> 
+                        <Typography variant="h6">{review.reviewer}</Typography>
+                        <Typography variant="p">{review.text}</Typography>
                       </Box>
                     ))}
                   </Box>
@@ -107,7 +105,6 @@ export default function CollapsibleTable({ books }) {
         <TableHead>
           <TableRow>
             <TableCell />
-            <TableCell>#</TableCell>
             <TableCell align="right">ISBN</TableCell>
             <TableCell align="right">{t('title')}</TableCell>
             <TableCell align="right">{t('author')}</TableCell>

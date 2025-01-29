@@ -5,14 +5,14 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 
-export default function BookCard({title,author}) {
+export default function BookCard({title,author, coverUrl}) {
   return (
-    <Card sx={{ width: 200 }}>
+    <Card sx={{ width: 300 }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="300"
-          image="https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_360,c_scale,dpr_1.5/jackets/9781408855898.jpg"
+          height="200"
+          image={coverUrl}
           alt={title}
         />
         <CardContent>

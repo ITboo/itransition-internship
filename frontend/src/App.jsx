@@ -7,6 +7,7 @@ import Gallery from "./widgets/Gallery";
 import { useEffect, useState, useCallback, useRef } from "react";
 import Filters from "./widgets/Filters";
 import { rows } from "./utils/mockData";
+import { generateBooks } from "./data/books";
 
 const INITIAL_ITEMS = 10;
 const LOAD_MORE_ITEMS = 10;
@@ -17,8 +18,10 @@ function App() {
   const [viewMode, setViewMode] = useState("table");
   const loadingRef = useRef(null);
   useEffect(() => {
-    setAllBooks(rows);
+    setAllBooks(generateBooks(10));
   }, []);
+
+
   const displayedBooks = allBooks.slice(0, visibleItems);
   const loadMore = useCallback(() => {
     if (visibleItems < allBooks.length) {
