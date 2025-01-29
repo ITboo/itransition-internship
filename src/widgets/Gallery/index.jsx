@@ -6,7 +6,7 @@ const Gallery = ({books}) => {
     <Stack direction="row" spacing={10} useFlexGap
     sx={{ flexWrap: 'wrap' }}>
         {books.map((item)=>(
-            <BookCard title={item.title} author={item.author}/>
+            <BookCard title={item.title} author={item.author} coverUrl={item.coverUrl}/>
         ))}
     </Stack>
   )

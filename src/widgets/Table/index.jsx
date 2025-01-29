@@ -23,6 +23,7 @@ function Row(props) {
 
   return (
     <React.Fragment>
+      
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
         <TableCell>
           <IconButton
@@ -100,8 +101,8 @@ function Row(props) {
 export default function CollapsibleTable({ books }) {
   const {t} = useTranslation()
   return (
-    <TableContainer component={Paper}>
-      <Table aria-label="collapsible table">
+    <TableContainer component={Paper} sx={{overflowX: "initial"}}>
+      <Table stickyHeader aria-label="collapsible table" >
         <TableHead>
           <TableRow>
             <TableCell />

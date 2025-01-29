@@ -2,5 +2,7 @@
   "author": "Автор",
   "title": "Название",
   "publisher": "Издатель",
-  "language": "Язык"
+  "language": "Язык",
+  "reviews": "Отзывы",
+  "likes": "Понравилось"
 }

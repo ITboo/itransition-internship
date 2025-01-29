@@ -11,18 +11,34 @@ import { generateBooks } from "./data/books";
 
 const INITIAL_ITEMS = 10;
 const LOAD_MORE_ITEMS = 10;
+const BOOKS_QUANTITY = 100;
 
 function App() {
   const [allBooks, setAllBooks] = useState([]);
   const [visibleItems, setVisibleItems] = useState(INITIAL_ITEMS);
   const [viewMode, setViewMode] = useState("table");
   const loadingRef = useRef(null);
+
+  const [filters, setFilters] = useState({
+    likes: null,
+    reviews: null,
+  });
+
   useEffect(() => {
-    setAllBooks(generateBooks(10));
+    setAllBooks(generateBooks(BOOKS_QUANTITY));
   }, []);
 
+  const filteredBooks = allBooks.filter((book) => {
+    const matchesLikes = book.likes >= filters.likes
 
-  const displayedBooks = allBooks.slice(0, visibleItems);
+    const matchesReviews =
+      filters.reviews === null || book.reviews.length === filters.reviews;
+
+    return matchesLikes && matchesReviews;
+  });
+
+  const displayedBooks = filteredBooks.slice(0, visibleItems);
+
   const loadMore = useCallback(() => {
     if (visibleItems < allBooks.length) {
       setVisibleItems((prev) => prev + LOAD_MORE_ITEMS);
@@ -45,18 +61,27 @@ function App() {
     return () => observer.disconnect();
   }, [loadMore]);
 
+  useEffect(() => {
+    setVisibleItems(INITIAL_ITEMS);
+  }, [filters]);
+
   return (
     <Container maxWidth="lg">
       <Header setViewMode={setViewMode} />
-      <Filters />
+      <Filters filters={filters} onFiltersChange={setFilters} />
+
       {viewMode === "table" ? (
         <CollapsibleTable books={displayedBooks} />
       ) : (
         <Gallery books={displayedBooks} />
       )}
+      {displayedBooks.length === 0 && <h3>No data</h3>}
       {visibleItems < allBooks.length && (
-        <Box ref={loadingRef} sx={{ p: 2, display:'flex',justifyContent:'center' }}>
-          <CircularProgress color="inherit" size="20px"/>
+        <Box
+          ref={loadingRef}
+          sx={{ p: 2, display: "flex", justifyContent: "center" }}
+        >
+          <CircularProgress color="inherit" size="20px" />
         </Box>
       )}
     </Container>

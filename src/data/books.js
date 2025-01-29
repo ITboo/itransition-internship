@@ -21,5 +21,3 @@ export const generateBook = (count) => {
 export const generateBooks = (count = 5) => {
   return Array.from({ length: count }, generateBook);
 };
-const res = generateBooks(10);
-console.log(res);

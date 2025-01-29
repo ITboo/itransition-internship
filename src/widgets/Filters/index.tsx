@@ -5,7 +5,8 @@ import { Stack } from "@mui/material";
 import LikesSlider from "../LikesSlider";
 import ReviewsInput from "../ReviewsInput";
 
-const Filters = () => {
+const Filters = ({ filters, onFiltersChange }) => {
+
   return (
     <Stack
       direction="row"
@@ -17,8 +18,8 @@ const Filters = () => {
     >
       <LangSwitcher />
       <SeedInput />
-      <LikesSlider/>
-      <ReviewsInput/>
+      <LikesSlider  onChange={(value) => onFiltersChange({ ...filters, likes: value })} likes={filters.likes}/>
+      <ReviewsInput onChange={(value) => onFiltersChange({ ...filters, reviews: value })} value={filters.reviews}/>
     </Stack>
   );
 };
