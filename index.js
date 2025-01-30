@@ -6,7 +6,7 @@ try {
   const args = process.argv.slice(2);
   const dice = InputParser.parse(args);
   console.log(MESSAGES.WELCOME);
-  
+
   const game = new App(dice);
   game.start();
 } catch (error) {
