@@ -8,7 +8,7 @@ try {
   console.log(MESSAGES.WELCOME);
 
   const game = new App(dice);
-  game.start();
+  game.play();
 } catch (error) {
   console.error(error.message);
 }

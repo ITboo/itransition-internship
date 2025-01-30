@@ -1,5 +1,6 @@
 export const MESSAGES = {
   WELCOME: "Welcome to the Dice Game!\u{1F44B}",
+  RANDOM:"PC selected a random value",
   INVALID_INPUT: {
     QUANTITY:
       "\u{1F534} Error: At least 3 dice configurations are required. Example usage:\nnpm run app 2,2,4,4,9,9 6,8,1,1,8,6 7,5,3,7,5,3",
@@ -15,5 +16,6 @@ export const MESSAGES = {
   PC_FIRST: "\u{1F4BB} Computer makes the first move",
   QUESTION: {
     START: "Your choice (0 or 1, ? for help, X to exit):",
+    DICE_CHOOSE: "Enter a number to choose a dice, or X to exit.",
   },
 };
