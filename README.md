@@ -1,1 +1,0 @@
-# itransition-internship

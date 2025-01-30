@@ -1,19 +1,31 @@
+import { useEffect, useState } from "react";
 import CardList from "../widgets/CardList";
 
-const rooms = [
-  { id: 1, title: "1" },
-  { id: 2, title: "2" },
-  { id: 3, title: "3" },
-];
-
 const Main = () => {
-  return(
-  <main>
-  <h1>Помоги в создании презентации</h1>
-  <CardList rooms={rooms} />
-  <h2>Или начни создавать новую</h2>
-  <button>Создать</button>
-  </main>)
+  const [rooms, setRooms] = useState([]);
+
+  useEffect(() => {
+    const getRooms = async () => {
+      await fetch(`http://localhost:8080/rooms`)
+        .then(async (response) => await response.json())
+        .then((data) => setRooms(data))
+        .catch((error) => console.error("Error fetching:", error));
+    };
+
+    getRooms();
+  }, []);
+
+
+  
+
+  return (
+    <main>
+      <h1>Помоги в создании презентации</h1>
+      <CardList rooms={rooms} />
+      <h2>Или начни создавать новую</h2>
+      <button>Создать</button>
+    </main>
+  );
 };
 
 export default Main;
