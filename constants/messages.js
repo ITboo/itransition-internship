@@ -1,6 +1,9 @@
 export const MESSAGES = {
   WELCOME: "Welcome to the Dice Game!\u{1F44B}",
-  RANDOM:"PC selected a random value",
+  RANDOM: "PC selected a random value",
+  USER_WIN: "\u{1F464} User wins!",
+  PC_WIN: "\u{1F4BB} PC wins!",
+  TIE: "It's a tie!",
   INVALID_INPUT: {
     QUANTITY:
       "\u{1F534} Error: At least 3 dice configurations are required. Example usage:\nnpm run app 2,2,4,4,9,9 6,8,1,1,8,6 7,5,3,7,5,3",
