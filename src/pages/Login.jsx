@@ -4,7 +4,7 @@ import { doSignInWithEmailAndPassword } from "../config/auth";
 import { useAuth } from "../context/authContext";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 const Login = () => {
   const { userLoggedIn } = useAuth();
 
@@ -15,14 +15,19 @@ const Login = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (!isSigningIn) {
+    try {
       setIsSigningIn(true);
       await doSignInWithEmailAndPassword(email, password);
+    } catch (err) {
+      alert("This user doesn't exist");
+      setIsSigningIn(false);
+      setEmail("");
+      setPassword("");
     }
   };
 
   return (
-    <Box sx={{width:'20%'}}>
+    <Box sx={{ width: "20%" }}>
       {userLoggedIn && <Navigate to={"/home"} replace={true} />}
 
       <main>
