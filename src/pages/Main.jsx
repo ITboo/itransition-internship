@@ -6,8 +6,10 @@ import { auth, db } from "../config/firebase";
 import { useState, useEffect } from "react";
 import { collection, getDocs } from "@firebase/firestore";
 import {useNavigate } from "react-router-dom";
+import AddUser from "../controllers/addUser";
 const Home = () => {
   const [userList, setUserList] = useState([]);
+  const [selected, setSelected] = useState([])
   const userCollectionRef = collection(db, "users");
   const navigate = useNavigate();
   useEffect(() => {
@@ -26,14 +28,18 @@ const Home = () => {
     };
     getUserList();
   }, []);
+
   if (!auth.currentUser) {
     navigate("/");
     return null;
   }
+
+
   return (
     <Container>
       <Header />
-      <DataTable userList={userList} />
+      <AddUser/>
+      <DataTable userList={userList} selected={selected} setSelected={setSelected}/>
     </Container>
   );
 };

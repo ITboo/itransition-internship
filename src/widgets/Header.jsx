@@ -11,16 +11,21 @@ import { auth } from "../config/firebase";
 import { signOut } from "@firebase/auth";
 import { useNavigate } from "react-router";
 
-
-const Header = () => {
-  const navigate = useNavigate()
+const Header = ({ onDelete }) => {
+  const navigate = useNavigate();
   const handleLogOut = async () => {
     try {
       await signOut(auth);
-      navigate('/')
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      console.log("delete");
+    } catch (error) {}
   };
 
   return (
@@ -43,7 +48,7 @@ const Header = () => {
           <IconButton aria-label="block">
             <BlockIcon />
           </IconButton>
-          <IconButton aria-label="delete">
+          <IconButton aria-label="delete" onClick={() => handleDelete}>
             <DeleteIcon />
           </IconButton>
         </ButtonGroup>
